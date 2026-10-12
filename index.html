@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="黃楚恩｜新北市立三重商工資料處理科個人網站">
+<title>黃楚恩的網站｜閱讀・會計・成長</title>
+<style>
+:root{
+  --ink:#405a7d; --muted:#687d99; --pink:#ffe4eb; --yellow:#fff1c8;
+  --mint:#dcf5ec; --blue:#e4f4fb; --lilac:#e9eaff; --white:#fffdfb;
+  --shadow:0 12px 32px rgba(75,99,132,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:28px}
+body{margin:0;background:#fffdfb;color:var(--ink);font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.8}
+a{color:inherit}
+.nav{
+ position:fixed;z-index:10;left:20px;top:50%;transform:translateY(-50%);
+ display:flex;flex-direction:column;gap:8px;padding:12px;
+ background:rgba(255,255,255,.92);border:1px solid #f0f0f5;border-radius:26px;
+ box-shadow:var(--shadow);backdrop-filter:blur(12px)
+}
+.nav a{width:76px;text-align:center;text-decoration:none;padding:8px 5px;border-radius:18px;font-size:.88rem;font-weight:700;transition:.2s}
+.nav a:hover,.nav a:focus-visible{background:var(--blue);transform:translateY(-2px);outline:none}
+.nav .symbol{display:block;margin:auto auto 3px;width:38px;height:38px;line-height:38px;border-radius:14px;font-size:1.25rem}
+.nav a:nth-child(1) .symbol{background:#dfe7ff}
+.nav a:nth-child(2) .symbol{background:#d8f3e4}
+.nav a:nth-child(3) .symbol{background:#ffe0e5}
+main{max-width:1240px;margin:auto;padding:0 28px 28px 120px}
+.hero{
+ position:relative;overflow:hidden;min-height:270px;margin:0 -28px 28px -120px;padding:38px 5% 32px 17%;
+ display:flex;align-items:center;justify-content:space-between;gap:24px;
+ background:radial-gradient(ellipse at 80% 60%,#d9f3ec 0 15%,transparent 15.5%),
+ radial-gradient(ellipse at 4% 5%,#fff0c9 0 13%,transparent 13.5%),
+ radial-gradient(ellipse at 96% 0%,#dff1fb 0 10%,transparent 10.5%),
+ linear-gradient(115deg,#fffaf0,#fff 60%,#fff7f8)
+}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.hero:before{width:150px;height:150px;background:#ffe1e9;left:-65px;bottom:-95px}
+.hero:after{width:130px;height:130px;background:#dff2fc;right:-45px;bottom:-85px}
+.eyebrow{font-size:.98rem;font-weight:700;letter-spacing:.14em;margin:0;color:#617da1}
+.hero h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.22;margin:8px 0 12px;letter-spacing:.06em}
+.hero p{margin:0;font-size:1.04rem}
+.hero-art{font-size:clamp(4.5rem,10vw,8rem);min-width:180px;text-align:center;filter:drop-shadow(0 10px 8px #b7c9d344)}
+.hero-art .bookrow{font-size:2.1rem;letter-spacing:-.25em;margin-top:-18px}
+.hero-art .caption{font-size:.92rem;letter-spacing:.08em;font-weight:700;background:#fff8;border-radius:20px;padding:5px 14px}
+.section{margin:28px 0;scroll-margin-top:20px}
+.section-heading{display:flex;align-items:center;gap:12px;margin:0 0 16px;font-size:1.9rem;line-height:1.3}
+.section-heading .icon{font-size:1.8rem}
+.underline{position:relative;display:inline-block}
+.underline:after{content:"";position:absolute;height:8px;border-radius:99px;background:#ffe9a7;left:0;right:-8px;bottom:-3px;z-index:-1;transform:rotate(-2deg)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+.card{background:white;border:1px solid #edf0f6;border-radius:22px;padding:22px;box-shadow:var(--shadow)}
+.profile{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:center}
+.avatar{display:grid;place-items:center;min-height:160px;border-radius:24px;background:linear-gradient(140deg,#fff1ce,#e2f4f9);font-size:5rem}
+.info-list{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:0}
+.info-list dt{font-weight:800;color:#5d88ae}.info-list dd{margin:0}
+.mini-title{font-size:1.2rem;font-weight:800;margin:0 0 12px}
+.interests{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.interest{background:linear-gradient(135deg,#eff9ff,#f9fcff);border-radius:18px;padding:14px;display:flex;gap:12px;align-items:flex-start}
+.interest .big{font-size:2rem}
+.interest p{margin:3px 0 0;color:var(--muted);font-size:.92rem}
+.highlight{margin-top:14px;background:linear-gradient(110deg,#fff0f1,#fff7e8);border-radius:18px;padding:15px 18px;display:flex;gap:12px;align-items:flex-start}
+.highlight .big{font-size:1.8rem}
+.highlight p{margin:4px 0 0}
+.plan-wrap{background:linear-gradient(110deg,#f4f9ff,#fff);padding:24px;border-radius:24px}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.plan{border-radius:18px;padding:18px}
+.plan:nth-child(1){background:var(--pink)}.plan:nth-child(2){background:var(--yellow)}.plan:nth-child(3){background:var(--mint)}
+.plan h3{margin:0 0 8px;font-size:1.12rem}.plan ul{margin:0;padding-left:20px}.plan li{margin:5px 0}
+.subnote{color:var(--muted);font-size:.92rem;margin:-5px 0 18px}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.project{display:flex;gap:14px;align-items:center;padding:18px;background:white;border:1px solid #edf0f6;border-radius:18px;box-shadow:0 6px 18px #50658c0a;transition:transform .2s,box-shadow .2s}
+.project:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.project-icon{flex:0 0 58px;width:58px;height:58px;border-radius:16px;display:grid;place-items:center;background:var(--blue);font-size:1.8rem}
+.project:nth-child(2) .project-icon{background:var(--mint)}.project:nth-child(3) .project-icon{background:var(--yellow)}
+.project h3{margin:0;font-size:1.02rem}.project p{margin:3px 0 0;color:var(--muted);font-size:.88rem}
+footer{text-align:center;padding:18px;margin:30px -28px 0 -120px;background:linear-gradient(90deg,#e7f4ff,#f0edff);font-size:.9rem;color:#5f7190}
+@media(max-width:900px){
+ main{padding-left:100px}
+ .hero{margin-left:-100px;padding-left:13%}
+ .about-grid{grid-template-columns:1fr}
+ .portfolio-grid{grid-template-columns:1fr 1fr}
+ footer{margin-left:-100px}
+}
+@media(max-width:620px){
+ body{padding-bottom:78px}
+ .nav{left:0;right:0;top:auto;bottom:0;transform:none;flex-direction:row;justify-content:space-around;gap:2px;padding:7px 10px;border-radius:20px 20px 0 0;border-bottom:0}
+ .nav a{width:auto;flex:1;padding:4px 2px;font-size:.76rem}
+ .nav .symbol{width:30px;height:30px;line-height:30px;font-size:1rem}
+ main{padding:0 15px 18px}
+ .hero{margin:0 -15px 22px;padding:30px 20px 26px;min-height:unset;gap:8px}
+ .hero-art{min-width:92px;font-size:4.5rem}.hero-art .bookrow{font-size:1.3rem}.hero-art .caption{font-size:.68rem;padding:3px 6px}
+ .eyebrow{font-size:.78rem;letter-spacing:.05em}.hero h1{font-size:2.05rem}.hero p{font-size:.9rem}
+ .section-heading{font-size:1.55rem}
+ .profile{grid-template-columns:1fr;text-align:center}.avatar{min-height:120px;font-size:4rem}
+ .info-list{max-width:330px;margin:auto;text-align:left}
+ .card{padding:17px}
+ .interests{grid-template-columns:1fr}
+ .plan-wrap{padding:17px}.plan-grid{grid-template-columns:1fr}
+ .portfolio-grid{grid-template-columns:1fr}
+ footer{margin:24px -15px 0;padding:16px 12px;font-size:.8rem}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="頁面導覽">
+  <a href="#about"><span class="symbol">🏠</span>關於我</a>
+  <a href="#study"><span class="symbol">🗓️</span>讀書計畫</a>
+  <a href="#portfolio"><span class="symbol">🧳</span>作品集</a>
+</nav>
+<header class="hero">
+  <div>
+    <p class="eyebrow">新北市立三重商工・資料處理科</p>
+    <h1>黃楚恩的網站</h1>
+    <p>用閱讀豐富自己，用專業創造未來！</p>
+  </div>
+  <div class="hero-art" aria-label="閱讀中的學生插畫">
+    👩🏻‍🎓<div class="bookrow">📚📖</div><div class="caption">閱讀，讓我看見更大的世界！</div>
+  </div>
+</header>
+<main>
+  <section id="about" class="section">
+    <div class="about-grid">
+      <div>
+        <h2 class="section-heading"><span class="icon">👤</span><span class="underline">關於我</span></h2>
+        <div class="card profile">
+          <div class="avatar" aria-hidden="true">👩🏻‍🎓</div>
+          <div>
+            <dl class="info-list">
+              <dt>🏫 學校</dt><dd>新北市立三重商工</dd>
+              <dt>🎓 科別</dt><dd>資料處理科</dd>
+              <dt>🙋 姓名</dt><dd>黃楚恩</dd>
+            </dl>
+            <p>大家好，我是黃楚恩！我喜歡閱讀，也對會計與資料整理很有興趣。希望透過學習累積能力，讓自己一步步成長。</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="mini-title">💗 我的興趣</h3>
+        <div class="interests">
+          <div class="interest"><span class="big">📖</span><div><strong>閱讀</strong><p>享受沉浸在書中的世界，從文字裡發現新觀點。</p></div></div>
+          <div class="interest"><span class="big">🧮</span><div><strong>會計</strong><p>喜歡數字與整理資料，練習細心和邏輯思考。</p></div></div>
+        </div>
+        <div class="highlight"><span class="big">🏆</span><div><strong>參加閱讀心得競賽</strong><p>平常喜歡閱讀，也會參加閱讀心得競賽，練習整理想法、表達感受。之後可以在這裡補上參賽作品或心得。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="study" class="section plan-wrap">
+    <h2 class="section-heading"><span class="icon">🗓️</span><span class="underline">讀書計畫</span></h2>
+    <p class="subnote">持續學習、累積實力，朝自己的目標前進！以下先放入示範內容，可以再依實際計畫修改。</p>
+    <div class="plan-grid">
+      <article class="plan"><h3>🌸 短期目標（1 個月內）</h3><ul><li>安排固定的閱讀時間</li><li>複習會計課程與課堂筆記</li><li>練習打字及電腦基本操作</li></ul></article>
+      <article class="plan"><h3>🌼 中期目標（3～6 個月）</h3><ul><li>加強會計觀念與計算能力</li><li>熟悉試算表及資料整理工具</li><li>完成一篇完整的閱讀心得</li></ul></article>
+      <article class="plan"><h3>🌿 長期目標（1 年以上）</h3><ul><li>建立穩定且有效率的讀書習慣</li><li>累積資料處理與會計相關作品</li><li>探索未來升學方向與職涯興趣</li></ul></article>
+    </div>
+  </section>
+
+  <section id="portfolio" class="section">
+    <h2 class="section-heading"><span class="icon">🧳</span><span class="underline">作品集</span></h2>
+    <p class="subnote">記錄學習歷程，展現自己的努力與成長。以下是預留的作品項目，之後可換成真正的作品或檔案連結。</p>
+    <div class="portfolio-grid">
+      <article class="project"><div class="project-icon">📚</div><div><h3>閱讀心得</h3><p>閱讀心得競賽作品／讀書筆記</p></div></article>
+      <article class="project"><div class="project-icon">🧮</div><div><h3>會計練習</h3><p>會計課程練習與學習紀錄</p></div></article>
+      <article class="project"><div class="project-icon">💻</div><div><h3>電腦應用</h3><p>資料處理、簡報或試算表作品</p></div></article>
+    </div>
+  </section>
+</main>
+<footer>新北市立三重商工｜資料處理科｜黃楚恩　・　個人網站</footer>
+</body>
+</html>
